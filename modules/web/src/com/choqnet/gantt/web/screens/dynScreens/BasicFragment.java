@@ -2,6 +2,7 @@ package com.choqnet.gantt.web.screens.dynScreens;
 
 import com.haulmont.cuba.core.global.Events;
 import com.haulmont.cuba.gui.Notifications;
+import com.haulmont.cuba.gui.components.ScrollBoxLayout;
 import com.haulmont.cuba.gui.components.TextField;
 import com.haulmont.cuba.gui.screen.ScreenFragment;
 import com.haulmont.cuba.gui.screen.Subscribe;
@@ -46,6 +47,5 @@ public class BasicFragment extends ScreenFragment {
 
     public void closeMe() {
         events.publish(new CloseEvent(this, idRoom));
-
     }
 }

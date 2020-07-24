@@ -36,7 +36,7 @@ public class Dynscreen extends Screen implements ApplicationListener<CloseEvent>
     @Order(10)
     @EventListener
     public void onApplicationEvent(CloseEvent event) {
-        // from here, how remove the god damn BasicFragment which fired this event?
+        theBox.remove(theBox.getComponentNN("gantt_Basicgragment"));
     }
 
     public void onBtnAddClick() {
@@ -60,5 +60,7 @@ public class Dynscreen extends Screen implements ApplicationListener<CloseEvent>
         basic.setIdRoom(cpt);
         cpt++;
         theBox.add(basic.getFragment());
+
+
     }
 }
