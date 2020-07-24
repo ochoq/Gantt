@@ -1,0 +1,5 @@
+@import "hover-ext";
+
+@mixin com_choqnet_gantt {
+  @include com_choqnet_gantt-hover-ext;
+}

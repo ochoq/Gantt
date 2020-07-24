@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://caption"
+        messagesPack="com.choqnet.gantt.web.screens"
+        xmlns:chart="http://schemas.haulmont.com/charts/charts.xsd">
+    <data>
+        <collection id="taskSpans2Dc"
+                    class="com.choqnet.gantt.entity.TaskSpan2"
+                    view="taskSpan2-view">
+            <loader id="taskSpans2Dl">
+                <query>
+                    <![CDATA[select e from gantt_TaskSpan2 e order by e.createTs]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <layout>
+        <split orientation="horizontal"
+               height="100%" width="100%">
+            <vbox id="regTable"
+                  width="100%" height="100%">
+                <chart:ganttChart
+                        id="ganttChart"
+                        additionalSegmentFields="task"
+                        balloonDateFormat="JJ:NN"
+                        categoryField="category"
+                        colorField="color"
+                        columnWidth="0.5"
+                        dataContainer="taskSpans2Dc"
+                        endDateField="end"
+                        height="100%"
+                        marginRight="70"
+                        period="DAYS"
+                        rotate="true"
+                        segmentsField="segments"
+                        startDate="2020-07-01"
+                        startDateField="start"
+                        theme="LIGHT"
+                        width="100%">
+                    <chart:graph balloonText="&lt;strong&gt;[[task]]&lt;/strong&gt;: [[open]] - [[value]] xx [[color]]"
+                                 fillAlphas="1"
+                                 lineAlpha="1"
+                                 lineColor="WHITE"/>
+                    <chart:valueAxis type="DATE"/>
+                    <chart:valueScrollbar autoGridCount="true"
+                                          color="BLACK"/>
+                    <chart:chartCursor cursorAlpha="0"
+                                       cursorColor="#55bb76"
+                                       fullWidth="true"
+                                       valueLineAlpha="0.5"
+                                       valueBalloonsEnabled="false"
+                                       valueLineBalloonEnabled="true"
+                                       valueLineEnabled="true"
+                                       valueZoomable="true"
+                                       zoomable="false"/>
+                    <chart:export/>
+                </chart:ganttChart>
+                <table id="taskSpan2sTable"
+                       height="100%" width="100%"
+                       dataContainer="taskSpans2Dc">
+                    <columns>
+                        <column id="category"/>
+                    </columns>
+                </table>
+                <vbox width="100%" height="100%">
+                    <dateField id="dateFrom"
+                               caption="From:"
+                               align="MIDDLE_CENTER"
+                               />
+                    <dateField id="dateTo"
+                               caption="To:"
+                               align="MIDDLE_CENTER"
+                               />
+                    <button id="btnGenerate"
+                            caption="Generate"
+                            align="MIDDLE_CENTER" invoke="onBtnGenerateClick"/>
+                </vbox>
+
+            </vbox>
+            <vbox id="dynTable"
+                  width="100%" height="100%">
+
+                <chart:ganttChart id="chart"
+                                  additionalSegmentFields="task"
+                                  balloonDateFormat="JJ:NN"
+                                  categoryField="category"
+                                  colorField="color"
+                                  columnWidth="0.5"
+                                  endDateField="end"
+                                  height="100%"
+                                  marginRight="70"
+                                  period="DAYS"
+                                  rotate="true"
+                                  segmentsField="segments"
+                                  startDate="2020-07-01"
+                                  startDateField="start"
+                                  theme="LIGHT"
+                                  width="100%"
+                >
+                    <chart:graph balloonText="&lt;strong&gt;[[task]]&lt;/strong&gt;: [[open]] - [[value]] xx [[color]]"
+                                 fillAlphas="1"
+                                 lineAlpha="1"
+                                 lineColor="WHITE"/>
+                    <chart:valueAxis type="DATE"/>
+                    <chart:valueScrollbar autoGridCount="true"
+                                          color="BLACK"/>
+                    <chart:chartCursor cursorAlpha="0"
+                                       cursorColor="#55bb76"
+                                       fullWidth="true"
+                                       valueLineAlpha="0.5"
+                                       valueBalloonsEnabled="false"
+                                       valueLineBalloonEnabled="true"
+                                       valueLineEnabled="true"
+                                       valueZoomable="true"
+                                       zoomable="false"/>
+                    <chart:export/>
+                </chart:ganttChart>
+            </vbox>
+        </split>
+    </layout>
+</window>

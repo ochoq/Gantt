@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="gantt_Segment2" name="segments2" extends="_local">
+        <property name="taskSpan2" view="_minimal">
+            <property name="category"/>
+            <property name="segments" view="_minimal"/>
+        </property>
+    </view>
+    <view entity="gantt_TaskSpan2" name="taskSpan2-view" extends="_local">
+        <property name="segments" view="_minimal">
+            <property name="start"/>
+            <property name="end"/>
+            <property name="color"/>
+            <property name="task"/>
+            <property name="taskSpan2" view="_minimal"/>
+        </property>
+    </view>
+</views>

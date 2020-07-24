@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        messagesPack="com.choqnet.gantt.web.screens">
+    <layout expand="theBox">
+        <scrollBox spacing="true"
+                   id="theBox"/>
+        <hbox>
+            <button id="btnAdd"
+                    align="MIDDLE_LEFT"
+                    caption="Add Button"
+                    invoke="onBtnAddClick"/>
+            <button id="btnAddPlus"
+                    align="MIDDLE_RIGHT"
+                    caption="Add Fragment"
+                    invoke="onBtnAddPlusClick"/>
+
+        </hbox>
+    </layout>
+</window>

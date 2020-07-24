@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<fragment xmlns="http://schemas.haulmont.com/cuba/screen/fragment.xsd" caption="Dynamic Fragment">
+    <layout height="150px" width="300px">
+        <hbox   width="100%"
+                expand="title">
+            <label id="title"
+                    css="color:#EEEEEE;background-color:#5c6978;font-size:18px;text-align:center"
+                   value="Hello"
+                   align="MIDDLE_CENTER"
+                   width="100%"/>
+            <linkButton
+                    icon="CLOSE"
+                    invoke="closeMe"
+                    id="btnClose"/>
+        </hbox>
+
+        <textField id="txtIn"
+                   caption="Text:" stylename="super"/>
+        <button id="btnShow"
+                caption="show message"
+                invoke="onBtnShowClick"/>
+    </layout>
+</fragment>
