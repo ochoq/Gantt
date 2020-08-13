@@ -13,6 +13,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 
 import javax.inject.Inject;
+import java.util.Collection;
+import java.util.List;
 
 @UiController("gantt_Dynscreen")
 @UiDescriptor("dynScreen.xml")
@@ -36,7 +38,9 @@ public class Dynscreen extends Screen implements ApplicationListener<CloseEvent>
     @Order(10)
     @EventListener
     public void onApplicationEvent(CloseEvent event) {
-        theBox.remove(theBox.getComponentNN("gantt_Basicgragment"));
+        BasicFragment frag = (BasicFragment) event.getSource();
+        theBox.remove(frag.getFragment());
+
     }
 
     public void onBtnAddClick() {
@@ -57,10 +61,8 @@ public class Dynscreen extends Screen implements ApplicationListener<CloseEvent>
 
     public void onBtnAddPlusClick() {
         BasicFragment basic = fragments.create(this, BasicFragment.class);
-        basic.setIdRoom(cpt);
+        basic.setRef(cpt);
         cpt++;
         theBox.add(basic.getFragment());
-
-
     }
 }

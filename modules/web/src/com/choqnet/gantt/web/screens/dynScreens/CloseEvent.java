@@ -8,7 +8,8 @@ public class CloseEvent extends ApplicationEvent implements UiEvent {
     private int idRoom;
     public CloseEvent(Object source, int myidRoomID) {
         super(source);
-        this.idRoom = idRoom;
+        this.idRoom = myidRoomID;
+        System.out.println(myidRoomID);
     }
 
     public int getIdRoom() {

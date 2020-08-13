@@ -23,19 +23,19 @@ public class BasicFragment extends ScreenFragment {
     @Inject
     private Events events;
 
-    private int idRoom;
+    private int ref;
 
-    public int getIdRoom() {
-        return idRoom;
+    public int getRef() {
+        return ref;
     }
 
-    public void setIdRoom(int id) {
-        this.idRoom = id;
+    public void setRef(int id) {
+        this.ref = id;
     }
 
     @Subscribe
     public void onInit(InitEvent event) {
-        txtIn.setValue("New @" + new SimpleDateFormat("HH:mm:ss").format(new Date()));
+        txtIn.setValue("comp n° " + ref);
         txtIn.setStyleName("super");
     }
 
@@ -46,6 +46,6 @@ public class BasicFragment extends ScreenFragment {
     }
 
     public void closeMe() {
-        events.publish(new CloseEvent(this, idRoom));
+        events.publish(new CloseEvent(this, ref));
     }
 }
